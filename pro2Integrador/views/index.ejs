@@ -15,7 +15,16 @@
 	<link rel="stylesheet" href="./css/app.css">
 </head>
 <body>
+	<!-- Header-->
+	<% if (locals.user!=undefined) {%>
 
+		<%- include('./partials/headerLogueado') %>
+	
+	  <% } else{ %>
+	
+		<%- include('./partials/header') %>
+		
+	  <%}%>
 
 	<!-- Banner -->
 	<div class="banner">
