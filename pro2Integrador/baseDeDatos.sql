@@ -26,3 +26,9 @@ CREATE TABLE products (
     
     FOREIGN KEY (idUsers) REFERENCES Users(id)
 );
+
+INSERT INTO users VALUES(DEFAULT, 'sophia@gmail.com', 'sophia' , 'sophiaContrasenia', DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO users VALUES(DEFAULT, 'victoria@gmail.com', 'victoria' , 'victoriaContrasenia', DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO users VALUES(DEFAULT, 'ana@gmail.com', 'ana' , 'anaContrasenia', DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO users VALUES(DEFAULT, 'belen@gmail.com', 'belen' , 'belenContrasenia', DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO users VALUES(DEFAULT, 'catalina@gmail.com', 'catalina' , 'catalinaContrasenia', DEFAULT, DEFAULT, DEFAULT);
