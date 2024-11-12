@@ -24,6 +24,7 @@ const userController = {
             } else {
                 
                 let check =  bcryptjs.compareSync(form.contrasenia, results.contrasenia);  //compareSync() retorna un booleano. viene del paquete bcrypt y funciona para comparar un texto plano contra un hash. 
+                //PREG contrasenia y password depneden del nombre del form y la otra de elnombre que le das en la columna de la base de datos NO???????
                 if (check) {
                     //return res.send("mail y contrasenia son correctos") 
                     req.session.user = results.dataValues;  //los datos consisos que tenga la tabla
