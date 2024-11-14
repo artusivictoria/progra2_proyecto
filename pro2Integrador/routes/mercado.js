@@ -12,5 +12,7 @@ router.get('/register', productoController.showFormCreate);
 //ruta de post producto
 router.post('/register' , prroductoController.store)
 
+/* GET buscar producto */
+router.get('/busqueda', productoController.search);
 
 module.exports = router;
