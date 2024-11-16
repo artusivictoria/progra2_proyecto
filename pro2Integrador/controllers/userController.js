@@ -1,4 +1,4 @@
-const db = require("../database/models/User"); //ESTO TODAVIA NO EXISTE LO TENGO QUE HACER
+const db = require('../database/models');
 const bcryptjs = require('bcryptjs');
 const { where } = require('sequelize');
 

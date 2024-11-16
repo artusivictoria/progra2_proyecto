@@ -43,7 +43,7 @@ app.use(function(req, res, next){
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/producto', mercadoRouter);
+app.use('/mercado', mercadoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
