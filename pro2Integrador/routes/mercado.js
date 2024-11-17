@@ -11,9 +11,9 @@ router.get('/', mercadoController.index);
 router.get('/product', mercadoController.product);
 
 /* GET crear producto */
-router.get('/register', productoController.showFormCreate);
+router.get('/registerProd', productoController.showFormCreate);
 //ruta de post producto
-router.post('/register' , productoController.store)
+router.post('/registerProd' , productoController.store)
 
 /* GET buscar producto */
 router.get('/busqueda', productoController.search);
