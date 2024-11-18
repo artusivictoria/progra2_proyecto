@@ -6,12 +6,40 @@ const { where } = require('sequelize');
 const productoController = {
     index: (function(req, res){
 
-        res.render('index')
+      db.Product.findAll()
+      .then(function (result) {
+        //res.send(result)
+        return res.render("index", { listaProductos: result });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+
 
     }),
 
     product: (function(req, res){
-        res.render('product')
+
+      let productoBuscado = req.params.idProducto;
+
+      let filtrado = {
+        include: {
+          all: true, //todas las relaciones
+          nested: true //y las relaciones anidadas
+        }
+      }
+
+      
+
+      db.Product.findByPk(productoBuscado, filtrado)
+      .then(function (results) {
+        //return res.send(results)
+        return res.render("product", { product: results });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+
     }),
 
     showFormCreate: function (req, res) {
