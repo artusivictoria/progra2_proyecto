@@ -1,6 +1,5 @@
 const db = require('../database/models')
 const op= db.Sequelize.Op;
-//const db = require("../database/models/User"); //ESTO TODAVIA NO EXISTE LO TENGO QUE HACER
 const { where } = require('sequelize');
 
 const productoController = {
@@ -8,8 +7,8 @@ const productoController = {
 
       db.Product.findAll()
       .then(function (result) {
-        res.send(result)
-        //return res.render("index", { listaProductos: result });
+        //res.send(result)
+        return res.render("index", { listaProductos: result });
       })
       .catch(function (err) {
         console.log(err);
