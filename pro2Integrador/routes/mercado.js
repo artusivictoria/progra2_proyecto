@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-//const mercadoController = require('../controllers/productoController');
+
 const productoController = require('../controllers/productoController');
 
 
@@ -9,8 +9,6 @@ const productoController = require('../controllers/productoController');
 router.get('/', productoController.index);
 
 router.get('/product/:idProducto', productoController.product);
-
-
 
 
 /* GET crear producto */
