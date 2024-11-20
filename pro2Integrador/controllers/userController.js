@@ -10,7 +10,17 @@ const userController = {
         return res.render("login")
     },
     registerPost: function(req,res) {
-        
+        let form = req.body;
+        //return res.send(form) //para mostrar los datos que me esta enviando el usuario
+        form.password= bcryptjs.hashSync(form.password, 10);  //ES PASSWORD O CONTRASEÑIA, FIJARME FORMUL
+        db.User.create(form)
+        .then(function(results){
+          return res.redirect("/users/login")
+        })
+        .catch (function(err){
+          console.log(err)
+        })
+       
     },
     loginPost: (function(req, res){
         let form = req.body;   //Para obtener los datos del formulario en el controlador usaremos la propiedad  body dentro del objeto request: req.body que es un objeto literal. 
