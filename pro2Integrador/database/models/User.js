@@ -47,6 +47,16 @@ module.exports = function(sequelize, datatypes){
     }
 
     const User = sequelize.define(alias, cols, config)
+    //Como Un producto tiene/pertenece a un usuario que publica ese producto, Un usuario puede haber publicado muchos productos
+    User.associate = function (models) {
+        User.hasMany(models.Product, {
+            as: "user",    //LE PUEDO PONER EL NOMBRE QEU QUIERA              
+            foreignKey: "idUsers", //Pongo la foreign key que tenia en la base de datos en la tabla de Products. no importa que en Users no este esta foreign key
+          
+          
+        }
+        ) 
+    }
 
     return User;
 

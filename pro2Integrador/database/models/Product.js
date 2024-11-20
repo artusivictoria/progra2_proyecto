@@ -52,7 +52,7 @@ module.exports = function(sequelize, datatypes){
 
 
     const Product = sequelize.define(alias, cols, config)
-
+    //Un producto tiene/pertenece a un usuario que publica ese producto
     Product.associate = function(models){
         
         Product.belongsTo(models.User , {
@@ -60,7 +60,6 @@ module.exports = function(sequelize, datatypes){
             foreignKey: "idUsers" //la columna que relaciona las dos tablas
         } );
     };
-
 
     return Product;
 

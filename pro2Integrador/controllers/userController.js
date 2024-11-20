@@ -12,7 +12,10 @@ const userController = {
     registerPost: function(req,res) {
         let form = req.body;
         //return res.send(form) //para mostrar los datos que me esta enviando el usuario
-        form.password= bcryptjs.hashSync(form.password, 10);  //ES PASSWORD O CONTRASEÑIA, FIJARME FORMUL
+        form.password = bcryptjs.hashSync(form.password, 10);  //ES PASSWORD O CONTRASEÑIA, FIJARME FORMUL
+        //Email: validar que es un campo obligatorio. Si el usuario envía el campo vacío debe recibir un mensaje especificando el error. No podrán registrarse emails duplicados.
+        //Nombre de usuario: campo obligatorio de tipo texto. Pueden repetirse los nombres de usuario.
+        //Contraseña: validar que es un campo obligatorio. Debe almacenarse en la base de datos de forma encriptada. Si el usuario envía el campo vacío debe recibir un mensaje especificando el error.
         db.User.create(form)
         .then(function(results){
           return res.redirect("/users/login")
@@ -20,7 +23,6 @@ const userController = {
         .catch (function(err){
           console.log(err)
         })
-       
     },
     loginPost: (function(req, res){
         let form = req.body;   //Para obtener los datos del formulario en el controlador usaremos la propiedad  body dentro del objeto request: req.body que es un objeto literal. 

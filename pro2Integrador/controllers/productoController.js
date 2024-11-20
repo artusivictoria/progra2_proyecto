@@ -8,8 +8,8 @@ const productoController = {
 
       db.Product.findAll()
       .then(function (result) {
-        //res.send(result)
-        return res.render("index", { listaProductos: result });
+        res.send(result)
+        //return res.render("index", { listaProductos: result });
       })
       .catch(function (err) {
         console.log(err);
@@ -17,7 +17,7 @@ const productoController = {
 
 
     }),
-
+    
     product: (function(req, res){
 
       let productoBuscado = req.params.idProducto;
