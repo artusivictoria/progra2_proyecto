@@ -3,13 +3,16 @@ const bcryptjs = require('bcryptjs');
 const { where } = require('sequelize');
 
 const userController = {
-    register: (function(req, res){
-
-        res.render('register')
-
-    }),
-
-    login: (function(req, res){
+    register: (req, res)=>{
+        return res.render("register")
+    },
+    login: (req, res)=>{
+        return res.render("login")
+    },
+    registerPost: function(req,res) {
+        
+    },
+    loginPost: (function(req, res){
         let form = req.body;   //Para obtener los datos del formulario en el controlador usaremos la propiedad  body dentro del objeto request: req.body que es un objeto literal. 
         //return res.send(form) //para mostrar los datos 
         

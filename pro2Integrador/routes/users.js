@@ -4,11 +4,17 @@ var router = express.Router();
 
 /* GET users listing. */
 
-router.get('/register', userController.register );
-//FALTA REGISTER POST
+/* crear sufijos Registro*/
+router.get ('/register', userController.register);
 
-router.post('/login', userController.login);
-//FALTA LOGIN GET 
+router.post("/register", userController.registerPost)
+
+
+/* crear sufijos Login*/
+router.get ('/login', userController.login);
+
+router.post("/login", userController.loginPost)
+
 
 router.post("/logout", userController.logout)
 
