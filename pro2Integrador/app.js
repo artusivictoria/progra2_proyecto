@@ -36,7 +36,7 @@ app.use(session({
 app.use(function(req, res, next){
   if (req.session.user !=undefined) {   //req.session.user !=undefined es true quiere decir que hay algo guardado
     res.locals.user= req.session.user  //res.locals es un objeto literal donde puedo almacenar todos los valores que quieran compartir con todas las vistas
-  }
+  } //obs aca elegi user pero podria haberle puesto lo que se me canta
   return next();
 })
 //obs. con todo esto de sesion luego podes hacer lo de partials de si esta logeado o no mostrar un difernte header ocmo hice en login

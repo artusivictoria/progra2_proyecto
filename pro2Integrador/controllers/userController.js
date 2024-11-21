@@ -40,7 +40,7 @@ const userController = {
                 return res.send("no hay mail, este mail no existe")
             } else {
                 
-                let check =  bcryptjs.compareSync(form.password, results.password);  //compareSync() retorna un booleano. viene del paquete bcrypt y funciona para comparar un texto plano contra un hash. 
+                let check =  bcryptjs.compareSync(form.contrasenia, results.contrasenia);  //compareSync() retorna un booleano. viene del paquete bcrypt y funciona para comparar un texto plano contra un hash. 
                 //obs. El campo password que envio desde el formulario(que defino en mi ejs de login) debe coincidir con el nombre que uso en el controlador.
                 if (check) {
                     //return res.send("mail y contrasenia son correctos") 
