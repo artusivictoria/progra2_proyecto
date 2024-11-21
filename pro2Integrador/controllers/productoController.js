@@ -2,6 +2,8 @@ const db = require('../database/models')
 const op= db.Sequelize.Op;
 const { where } = require('sequelize');
 
+
+//Si te tira error de listaProductos no esta definido: poner res.send en index en vez del return. poner /mercado en localhost. volver poner el return del render
 const productoController = {
     index: (function(req, res){
 
