@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET users listing. */
 
 /* crear sufijos Registro*/
-router.get ('/register', userController.register);
+router.get ('/register', userController.register); //obs. este sirve para mostrar el formulario de login y el de abajo, de post, sirve para procesar el formulario de login
 
 router.post("/register", userController.registerPost)
 

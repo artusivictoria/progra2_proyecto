@@ -36,18 +36,18 @@
 				<h2 class="products-title">Ingresar</h2>
 			</div>
 
-			<form class="form-label" action="../baseProg22024/index.html" method="POST" >
+			<form class="form-label" action="/users/login" method="POST" > <!-- Esto enviara los datos al método loginPost de mi controlador.-->
 			
 				 
 					<div>
-						<input class="form-input" id="email" class="input" type="email" name="email" placeholder="email">
+						<input class="form-input" id="email" class="input" type="email" name="email" placeholder="email" required> <!-- esta ok haber puesto el required desde aca? y lo mismo para abajo. preguntar a -->
 					</div>
 			
 					<div>
-						<input class="form-input" id="password" class="input" type="password" name="password" placeholder="Clave">
+						<input class="form-input" id="password" class="input" type="password" name="password" placeholder="Clave" required>
 					</div>
 	
-					<button class="form-input" type="text" class="submit">Ingresar</button>
+					<button class="form-input" type="submit" class="submit">Ingresar</button>
 				</form>
 
 

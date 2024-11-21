@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+const productoController = require('../controllers/productoController');
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send("entrar a /mercado en el navegador");
-});
+router.get('/', productoController.index);
 
 module.exports = router;
