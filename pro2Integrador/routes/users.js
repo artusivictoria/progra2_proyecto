@@ -15,7 +15,10 @@ router.get ('/login', userController.login);
 
 router.post("/login", userController.loginPost)
 
+/* sufijo logout*/
 
 router.post("/logout", userController.logout)
+
+
 
 module.exports = router;

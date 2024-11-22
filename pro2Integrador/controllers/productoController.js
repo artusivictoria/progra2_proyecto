@@ -53,12 +53,12 @@ const productoController = {
         //proceso los datos que vienen del formulario
     
         let producto = req.body;
-        //return res.send(producto)
+        return res.send(producto)
     
         db.Product.create(producto)
     
         .then(function(results){
-          return res.redirect('/mercado');
+          //return res.redirect('/mercado');
         })
         .catch(function (err) {
           console.log(err)
