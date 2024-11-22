@@ -53,14 +53,16 @@ const productoController = {
         //proceso los datos que vienen del formulario
     
         let producto = req.body;
-        return res.send(producto)
+        //return res.send(producto)
     
         db.Product.create(producto)
     
         .then(function(results){
-          //return res.redirect('/mercado');
+          //return res.send(results)
+          return res.redirect('/mercado');
         })
         .catch(function (err) {
+          res.send('Hubo un error al guardar el producto.')
           console.log(err)
         })
     
@@ -83,14 +85,18 @@ const productoController = {
     
         db.Product.findAll(filtrado)
         .then(function (results) {
+
+          return res.render ('search-results')
     
-          return res.send(results);
+          //return res.send(results);
         })//si todo sale bien
         .catch( (err) => { //en vez de err podes ponerle lo que se te cante
           return console.log(err) ;
         })
     
       }
+
+
     
     
 };

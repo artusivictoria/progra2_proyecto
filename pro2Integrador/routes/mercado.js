@@ -17,6 +17,7 @@ router.get('/registerProd', productoController.showFormCreate);
 //ruta de post producto
 router.post('/registerProd' , productoController.store)
 
+
 /* GET buscar producto */
 router.get('/busqueda', productoController.search);
 
