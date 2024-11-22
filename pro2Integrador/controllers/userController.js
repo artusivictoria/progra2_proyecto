@@ -12,7 +12,7 @@ const userController = {
     registerPost: function(req,res) {
         let form = req.body;
         //return res.send(form) //para mostrar los datos que me esta enviando el usuario
-        form.contrasenia = bcryptjs.hashSync(form.contrasenia, 10);  //ES CONTRASEÑIA, tiene que ser igl a base de datos
+        form.contrasenia = bcryptjs.hashSync(form.contrasenia, 10);  //ES CONTRASEÑIA, tiene que ser igl a base de datos.
         //Email: validar que es un campo obligatorio. Si el usuario envía el campo vacío debe recibir un mensaje especificando el error. No podrán registrarse emails duplicados.
         //Nombre de usuario: campo obligatorio de tipo texto. Pueden repetirse los nombres de usuario.
         //Contraseña: validar que es un campo obligatorio. Debe almacenarse en la base de datos de forma encriptada. Si el usuario envía el campo vacío debe recibir un mensaje especificando el error.
