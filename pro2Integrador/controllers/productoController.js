@@ -79,18 +79,18 @@ const productoController = {
         let filtrado = {
             where: [{nombre: {[op.like]: `%${qs}%`}}],
             order: [["createdAt", "DESC"]],
-            offset: 1
+            //offset: 1
         }
         
     
         db.Product.findAll(filtrado)
         .then(function (results) {
 
-          return res.render ('search-results')
+          return res.render("search-results", { prodBuscado: results })
     
           //return res.send(results);
         })//si todo sale bien
-        .catch( (err) => { //en vez de err podes ponerle lo que se te cante
+        .catch( (err) => { //en vez de err podes ponerle lo que 
           return console.log(err) ;
         })
     
