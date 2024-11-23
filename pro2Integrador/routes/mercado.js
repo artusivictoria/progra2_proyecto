@@ -21,4 +21,9 @@ router.post('/registerProd' , productoController.store)
 /* GET buscar producto */
 router.get('/busqueda', productoController.search);
 
+//router.get('/update/:id', productoController.showFormUpdate);
+//Cuando proceso datos por formulario, necesito ruta get(lista) y ruta POST:
+//router.post('/update' , productoController.update)
+
+
 module.exports = router;

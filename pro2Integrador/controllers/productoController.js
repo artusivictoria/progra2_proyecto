@@ -97,8 +97,47 @@ const productoController = {
       }
 
 
+/*
+      showFormUpdate: function(req,res){
+        let id = req.params.id
+    
+        db.Product.findByPk(id)
+        .then(function(results){
+        return res.render('updateProduct' , {product :results}) 
+        })
+        .catch(function (err) {
+          console.log(err)
+        })
+     
+        //return res.send(id) para comprobar si me trae el id. 
+    
+       
+    
+      },
+      
+      update: function(req,res){
+        let newInfo = req.body
+        let id = req.body.id
+
+        let filtrado = {where: [{id:id}]}
+    
+        db.Product.update(newInfo, filtrado)
+    
+        .then(function(result){
+          return res.redirect('/mercado') 
+          })
+        .catch(function (err) {
+          console.log(err)
+          })
     
     
+        //res.send(newinfo)
+    
+      }
+
+
+    
+  */
 };
 
 module.exports = productoController;
