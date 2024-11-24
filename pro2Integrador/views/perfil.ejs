@@ -28,35 +28,15 @@
 		
 	  <%}%>
 
+
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda</h2>
+				<h2 class="products-title">Hola, Bienvenido a tu perfil! </h2>
 			</div>
-			
-			<% for( let i = 0; i < prodBuscado.length; i++ ) { %>
 
 
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/mercado/product/<%= prodBuscado[i].id %>">
-							<figure class="product-box_image">
-								<img src="<%= prodBuscado[i].imagen %>" alt="imagen de <%= prodBuscado[i].nombre %>">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= prodBuscado[i].nombre %> publicado por <a href="/users/perfil"><%= prodBuscado[i].user.nombreUsuario %></a> </h2>
-								<p><%= prodBuscado[i].descripcion %></p>
-								<p>Comentarios: 12</p>
-								
-							</article>
-						</a>
-					</section>
-				</div>
-		   
-			<% } %>
-
- 
 	<!-- footer -->
 	<footer class="main-footer">
 		<div class="container">

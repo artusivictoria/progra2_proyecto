@@ -31,12 +31,13 @@
             <ul class="left-navbar">
                 <li><a href="/mercado">Todos los productos</a></li>
                 <li><a href="/mercado/registerProd">Cargar productos</a></li> 
+                <li><a href="/users/perfil">Mi perfil</a></li>
             </ul>
 
             <ul class="right-navbar">
             
                 <li> 
-                    <%= user.nombreUsuario %> <i class="fas fa-user"></i>
+                    Hola <%= user.nombreUsuario %>! <i class="fas fa-user"></i>
                 </li>
                 <li>
                     <form action="/users/logout" method="post">

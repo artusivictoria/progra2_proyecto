@@ -66,6 +66,11 @@ const userController = {
         return res.redirect('/')
     }, 
 
+    perfil: function(req,res) {
+        return res.render("perfil")
+        //return res.render("perfil", { perfilInfo: results });
+    }, 
+
 
 
 };
