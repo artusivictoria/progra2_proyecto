@@ -6,10 +6,13 @@ const { where } = require('sequelize');
 //Si te tira error de listaProductos no esta definido: poner res.send en index en vez del return. poner /mercado en localhost. volver poner el return del render
 const productoController = {
     index: (function(req, res){
-
-      db.Product.findAll()
+      let filtrado = { 
+        order: [["id", "DESC"]], //el id se crea en orden de creacion
+        limit: 55,
+      }
+      db.Product.findAll(filtrado)
       
-      .then(function (result) {
+        .then(function (result) {
         //res.send(result)
         return res.render("index", { listaProductos: result })
       })
