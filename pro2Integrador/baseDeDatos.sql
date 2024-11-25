@@ -33,9 +33,9 @@ INSERT INTO users VALUES(DEFAULT, 'ana@gmail.com', 'ana' , 'anaContrasenia', DEF
 INSERT INTO users VALUES(DEFAULT, 'belen@gmail.com', 'belen' , 'belenContrasenia', DEFAULT, DEFAULT, DEFAULT);
 INSERT INTO users VALUES(DEFAULT, 'catalina@gmail.com', 'catalina' , 'catalinaContrasenia', DEFAULT, DEFAULT, DEFAULT);
 
-INSERT INTO products VALUES(DEFAULT, 'https://mmgrim2.azureedge.net/MediaFiles/Grimoldi/2024/10/2/10042902_800.jpg', 'cartera negra' , 'Cartera grimoldi cuero Mercurio', DEFAULT, DEFAULT, DEFAULT, 1);
-INSERT INTO products VALUES(DEFAULT, 'https://mmgrim2.azureedge.net/MediaFiles/Grimoldi/2024/8/22/9926336_800.jpg', 'mochila negra' , 'Mochila grimoldi Concept X ', DEFAULT, DEFAULT, DEFAULT, 1);
-INSERT INTO products VALUES(DEFAULT, 'https://newswarovskiargentina.vteximg.com.br/arquivos/ids/641748-1000-1000/5662179_ms1.jpg', 'collar Lilia' , 'Collar swarovski en Y', DEFAULT, DEFAULT, DEFAULT, 2);
-INSERT INTO products VALUES(DEFAULT, 'https://ar.isadoraonline.com/media/catalog/product/4/8/48058602_0_1_20220905180506.jpg', 'aros argollas', 'Aros de plata', DEFAULT, DEFAULT, DEFAULT, 3);
-INSERT INTO products VALUES(DEFAULT, 'https://ar.isadoraonline.com/media/catalog/product/4/8/48760701_0_1_20240903150812.jpg', 'pañuelo flores' , 'pañuelo isadora de verano', DEFAULT, DEFAULT, DEFAULT, 4);
+INSERT INTO products VALUES(DEFAULT, 'carteranegra.jpg', 'cartera negra' , 'Cartera grimoldi cuero Mercurio', DEFAULT, DEFAULT, DEFAULT, 1);
+INSERT INTO products VALUES(DEFAULT, 'mochilanegra.jpg', 'mochila negra' , 'Mochila grimoldi Concept X ', DEFAULT, DEFAULT, DEFAULT, 1);
+INSERT INTO products VALUES(DEFAULT, 'collarmariposa.jpg', 'collar Lilia' , 'Collar swarovski en Y', DEFAULT, DEFAULT, DEFAULT, 2);
+INSERT INTO products VALUES(DEFAULT, 'argollasplata.jpg', 'aros argollas', 'Aros de plata', DEFAULT, DEFAULT, DEFAULT, 3);
+INSERT INTO products VALUES(DEFAULT, 'pañueloverano.jpg', 'pañuelo flores' , 'pañuelo isadora de verano', DEFAULT, DEFAULT, DEFAULT, 4);
 
