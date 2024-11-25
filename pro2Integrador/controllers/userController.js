@@ -9,20 +9,40 @@ const userController = {
     login: (req, res)=>{
         return res.render("login")
     },
-    registerPost: function(req,res) {
+    registerPost: function(req, res) {
         let form = req.body;
-        //return res.send(form) //para mostrar los datos que me esta enviando el usuario
-        form.contrasenia = bcryptjs.hashSync(form.contrasenia, 10);  //ES CONTRASEÑIA, tiene que ser igl a base de datos.
-        //Email: validar que es un campo obligatorio. Si el usuario envía el campo vacío debe recibir un mensaje especificando el error. No podrán registrarse emails duplicados.
-        //Nombre de usuario: campo obligatorio de tipo texto. Pueden repetirse los nombres de usuario.
-        //Contraseña: validar que es un campo obligatorio. Debe almacenarse en la base de datos de forma encriptada. Si el usuario envía el campo vacío debe recibir un mensaje especificando el error.
-        db.User.create(form)
-        .then(function(results){
-          return res.redirect("/users/login")
-        })
-        .catch (function(err){
-          console.log(err)
-        })
+        
+        // Consigna de validar campos obligatorios
+        if (!form.nombreUsuario || form.nombreUsuario === "") {
+            return res.send("El campo Nombre de usuario es obligatorio! :)");
+        }
+        if (!form.email || form.email === "") {
+            return res.send("El campo Email es obligatorio  :)");
+        }
+        if (!form.contrasenia || form.contrasenia === "") {
+            return res.send("El campo Contraseña es obligatorio :)");
+        }
+    
+        // Consigna de validar duplicado de Email
+        db.User.findOne({ where: { email: form.email } })
+            .then(userFound => {
+                if (userFound) {
+                    return res.send("El Email ingresado ya está registrado.");
+                }
+    
+                //return res.send(form) //para mostrar los datos que me esta enviando el usuario
+                form.contrasenia = bcryptjs.hashSync(form.contrasenia, 10); // ES CONTRASEÑIA, tiene que ser igual a base de datos.
+                db.User.create(form)
+                    .then(function(results) {
+                        return res.redirect("/users/login");
+                    })
+                    .catch(function(err) {
+                        console.log(err);
+                    });
+            }) // <--- Este es el paréntesis que faltaba cerrar.
+            .catch(function(err) {
+                console.log(err);
+            });
     },
     loginPost: function(req, res){
         let form = req.body;   //Para obtener los datos del formulario en el controlador usaremos la propiedad  body dentro del objeto request: req.body que es un objeto literal. 
@@ -44,7 +64,7 @@ const userController = {
                 //obs. El campo password que envio desde el formulario(que defino en mi ejs de login) debe coincidir con el nombre que uso en el controlador.
                 if (check) {
                     //return res.send("mail y contrasenia son correctos") 
-                    req.session.user = results.dataValues;  //los datos consisos que tenga la tabla, es decir, cn esto guardo los datos del usuario en la sesion
+                    req.session.user = results.dataValues;  //los datos consisos que tenga la tabla, es decir, cn esto guardo los datos del usuario en la sesion //obs. req.session.user permite que el usuario logueado est disponible en cualquier controlador
                     return res.redirect("/mercado"); //redirige al usuario a la página principal
 
 

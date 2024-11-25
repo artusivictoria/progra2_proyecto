@@ -9,6 +9,10 @@ const productoController = {
       let filtrado = { 
         order: [["id", "DESC"]], //el id se crea en orden de creacion
         limit: 55,
+        include: {
+          all: true, //todas las relaciones
+          nested: true //y las relaciones anidadas
+        }
       }
       db.Product.findAll(filtrado)
       
@@ -53,11 +57,20 @@ const productoController = {
       },
 
     store: function (req, res) {
+        if (!req.session.user) {
+          // Si no hay usuario logueado quiero q rediriga a login (d todas formas, no te va a aparecer lo de crear en el header si no estas loguado pro qcomo lo configure en partials)
+          return res.redirect('/users/login');
+        }
+
         //proceso los datos que vienen del formulario
     
         let producto = req.body;
         //return res.send(producto)
-    
+        
+        // esto aosigna el ID del usuario logueado al producto
+        //con esto logro que cuando un usario crea un producto, en la base de datos en products en la fila de ese producto, se guarde idUsers
+        producto.idUsers = req.session.user.id;
+        
         db.Product.create(producto)
     
         .then(function(results){
