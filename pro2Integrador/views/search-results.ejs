@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
-
-	<title> Mercado Liebre Argentina</title>
-	<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="../css/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="../css/app.css">
-</head>
+<%- include('./partials/head') %>
 
 <body>
 	<!-- Header-->
@@ -47,7 +34,8 @@
 							</figure>
 							<article class="product-box_data">
 								
-								<h2><%= prodBuscado[i].nombre %> publicado por <a href="/users/perfil"><%= prodBuscado[i].user.nombreUsuario %></a> </h2>
+								<h2><%= prodBuscado[i].nombre %> </h2>
+								<p>Publicado por <a href="/users/perfil"><%= prodBuscado[i].user.nombreUsuario %></a> </p>
 								 
 								
 								<!-- temporal hasta que borre los productos que no tienen idUser, modifico esto por el if de arriba

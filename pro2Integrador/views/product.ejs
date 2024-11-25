@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
-
-	<title> Mercado Liebre Argentina</title>
-	<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/css/app.css">
-
-</head>
+<%- include('./partials/head') %>
 <body>
 	<!-- Header -->
 	<% if (locals.user!=undefined) {%>
@@ -31,10 +18,15 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= product.nombre %> --------- publicado por <%= product.user.nombreUsuario %></h2> 
-			<p class="product-detail-description">
-				<a href="/mercado/showFormUpdate">Editar</a>
-			</p>
+			<h2 class="products-title"><%= product.nombre %> </h2> 
+			<a class= "publicadoUsuario" href="/users/perfil/<%=product.idUsers%>">    Publicado por <%= product.user.nombreUsuario %> </a>
+			<% if (locals.user!=undefined) {%>
+				<p class="product-detail-description">
+					<a href="/mercado/showFormUpdate">Editar</a>
+				</p>
+				
+			  <%}%>
+		
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -47,45 +39,44 @@
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src="/images/users/sophia.jpg" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
+								<strong> <a href="profile.html">sophia: </a> </strong>
+								 Este producto es de muy buena calidad. La pagina es muy amigable</p>
 							</div>
 						</article>
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src="/images/users/victoria.jpg" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
+									<strong> <a href="profile.html">Victora: </a> </strong>
+									No recomiendo este producto, se rompio a la semana</p>
 							</div>
 						</article>
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src="/images/users/ana.jpg" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
+									<strong> <a href="profile.html">Ana: </a> </strong>
+									Recomendable producto y con envio rapido
 									</p>
 							</div>
 						</article>
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src="/images/users/belen.jpg" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
+									<strong> <a href="profile.html"> Belen </a> </strong>
+									No llego como esperaba, es mas chico. Estoy desepcionada</p>
 							</div>
 						</article>
 						<article>
-							<img src="https://via.placeholder.com/35" alt="">
+							<img src="/images/users/catalina.jpg" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
+									<strong> <a href="profile.html">Catalina </a> </strong>
+									Excelente. Mi vida cambio con este producto y esta pagina web</p>
 							</div>
 						</article>
 

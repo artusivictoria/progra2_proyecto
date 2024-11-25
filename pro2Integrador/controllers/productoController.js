@@ -18,7 +18,7 @@ const productoController = {
       
         .then(function (result) {
         //res.send(result)
-        return res.render("index", { listaProductos: result })
+          return res.render("index", { listaProductos: result })
       })
       .catch(function (err) {
         console.log(err);
@@ -53,13 +53,20 @@ const productoController = {
     }),
 
     showFormCreate: function (req, res) {
-        return res.render("product-add");
+      if (!req.session.user) {
+      
+        return res.redirect('/users/login');
+    }
+    
+      return res.render("product-add");
+        
       },
 
     store: function (req, res) {
         if (!req.session.user) {
           // Si no hay usuario logueado quiero q rediriga a login (d todas formas, no te va a aparecer lo de crear en el header si no estas loguado pro qcomo lo configure en partials)
-          return res.redirect('/users/login');
+          res.send("hola")
+          //return res.redirect('/users/login');
         }
 
         //proceso los datos que vienen del formulario por separado para poder hacer las verificaciones

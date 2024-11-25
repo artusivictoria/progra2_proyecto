@@ -19,7 +19,9 @@ router.post("/login", userController.loginPost)
 
 router.post("/logout", userController.logout)
 
-router.get ('/perfil', userController.perfil);
+router.get ('/perfil/:idPerfil', userController.perfil);
+
+router.get ('/miperfil/:idPerfil', userController.miPerfil);
 
 
 module.exports = router;

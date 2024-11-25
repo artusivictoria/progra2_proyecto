@@ -4,7 +4,7 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
+  --yellow: #a1e4ea;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
@@ -476,6 +476,17 @@ textarea.form-input {
   color: #fff;
 }
 
+.publicadoPor{
+  font-size: 15px;
+  color: #666666;
+}
+
+.publicadoUsuario{
+  font-size: 20px;
+  color: #666666;
+  padding-left: 2%;
+
+}
 
 
 /*====== Media-Queries ======*/

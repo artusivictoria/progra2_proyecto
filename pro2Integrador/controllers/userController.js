@@ -7,7 +7,14 @@ const userController = {
         return res.render("register")
     },
     login: (req, res)=>{
-        return res.render("login")
+
+        if (req.session.user) {
+      
+            return res.redirect('/mercado');
+        }
+        
+          return res.render("login");
+            
     },
     registerPost: function(req, res) {
         let form = req.body;
@@ -87,11 +94,42 @@ const userController = {
     }, 
 
     perfil: function(req,res) {
-        return res.render("perfil")
-        //return res.render("perfil", { perfilInfo: results });
+
+    let idPerfil = req.params.idPerfil;
+
+      let filtrado = {
+        include: {
+          all: true, //todas las relaciones
+          nested: true //y las relaciones anidadas
+        }
+      }
+
+      
+      db.Product.findByPk(idPerfil, filtrado)
+      .then(function (results) {
+        //return res.send(results)
+        return res.render("perfil", { perfilInfo: results });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+        //return res.render("perfil")
+       
     }, 
 
-
+    miPerfil: function(req,res) {
+        let idPerfil = req.params.idPerfil
+        db.User.findByPk(idPerfil)
+      .then(function (results) {
+        return res.send(results)
+        
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+      
+        
+    }
 
 };
 
