@@ -62,55 +62,76 @@ const productoController = {
           return res.redirect('/users/login');
         }
 
-        //proceso los datos que vienen del formulario
-    
-        let producto = req.body;
-        //return res.send(producto)
-        
-        // esto aosigna el ID del usuario logueado al producto
-        //con esto logro que cuando un usario crea un producto, en la base de datos en products en la fila de ese producto, se guarde idUsers
-        producto.idUsers = req.session.user.id;
-        
-        db.Product.create(producto)
-    
-        .then(function(results){
-          //return res.send(results)
-          return res.redirect('/mercado');
-        })
-        .catch(function (err) {
-          res.send('Hubo un error al guardar el producto.')
-          console.log(err)
-        })
-    
-    
-        //primer paso siempre veo los datos que vienen del formulario crear
-        //return res.send(req.body) 
-      },
+        //proceso los datos que vienen del formulario por separado para poder hacer las verificaciones
+        const { imagen, nombre, descripcion } = req.body;
 
-      search: function (req,res) {
-
-        let qs = req.query.producto; 
-    
-    
-        let filtrado = {
-            where: [{nombre: {[op.like]: `%${qs}%`}}],
-            order: [["createdAt", "DESC"]],
-            //offset: 1
+        // Validar que los campos no estén vacíos
+        if (!imagen || !nombre || !descripcion) {
+            return res.send("Todos los campos son obligatorios, por favor completarlos a todos, gracias!")
         }
+        else {
+          const producto = {
+            imagen,
+            nombre,
+            descripcion,
+            idUsers: req.session.user.id, // esto aosigna el ID del usuario logueado al producto
+            //con esto logro que cuando un usario crea un producto, en la base de datos en products en la fila de ese producto, se guarde idUsers
+            //ahora que lo separe para hacer las verificaciones, ya no hago lo de producto.idUsers = req.session.user.id; directmente lo hagodesde idUsers
+          
+            //obs. como hice lo de separar en parates para las verificaciones, no hago lo de let producto = req.body;
+          };
+  
+          //return res.send(producto)
+          
+          
+          db.Product.create(producto)
+      
+          .then(function(results){
+            //return res.send(results)
+            return res.redirect('/mercado');
+          })
+          .catch(function (err) {
+            res.send('Hubo un error al guardar el producto.')
+            console.log(err)
+          })
+      
+        }
+          //primer paso siempre veo los datos que vienen del formulario crear
+          //return res.send(req.body) 
+        },
+  
+        search: function (req,res) {
+  
+          let qs = req.query.producto; 
+
+          
+      
+          let filtrado = {
+              where: [{nombre: {[op.like]: `%${qs}%`}}],
+              order: [["createdAt", "DESC"]],
+              //offset: 1
+              include: [{
+                model: db.User, // Est hace q incluyaa el modelo User
+                as: 'user',     // Alias usado en la relación en modls
+            }],
+          }
+          
+      
+          db.Product.findAll(filtrado)
+          .then(function (results) {
+  
+            return res.render("search-results", { prodBuscado: results })
+      
+            //return res.send(results);
+          })//si todo sale bien
+          .catch( (err) => { //en vez de err podes ponerle lo que 
+            return console.log(err) ;
+          })
+        }
+
         
     
-        db.Product.findAll(filtrado)
-        .then(function (results) {
-
-          return res.render("search-results", { prodBuscado: results })
-    
-          //return res.send(results);
-        })//si todo sale bien
-        .catch( (err) => { //en vez de err podes ponerle lo que 
-          return console.log(err) ;
-        })
-    
-      }
+      };
 
 
 /*
@@ -154,6 +175,6 @@ const productoController = {
 
     
   */
-};
+
 
 module.exports = productoController;

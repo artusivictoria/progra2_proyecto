@@ -1,6 +1,6 @@
 const db = require('../database/models');
 const bcryptjs = require('bcryptjs');
-const { where } = require('sequelize'); //VER BORRAR O USAR 
+const { where } = require('sequelize'); //obs. no la usamos 
 
 const userController = {
     register: (req, res)=>{

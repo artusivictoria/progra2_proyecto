@@ -45,7 +45,13 @@
 								<img src="<%= prodBuscado[i].imagen %>" alt="imagen de <%= prodBuscado[i].nombre %>">
 							</figure>
 							<article class="product-box_data">
+								
 								<h2><%= prodBuscado[i].nombre %> publicado por <a href="/users/perfil"><%= prodBuscado[i].user.nombreUsuario %></a> </h2>
+								
+								<!-- temporal hasta que borre los productos que no tienen idUser, modifico esto por el if de arriba
+								<h2><%= prodBuscado[i].nombre %> publicado por <% if (prodBuscado[i].user) { %><a href="/users/perfil"><%= prodBuscado[i].user.nombreUsuario %></a><% } else { %><p>Usuario desconocido sin id por que lo cargue cuando funcionaba mal algo de la base de datos de idUser</p><% } %></h2> 
+								-->
+
 								<p><%= prodBuscado[i].descripcion %></p>
 								<p>Comentarios: 12</p>
 								
