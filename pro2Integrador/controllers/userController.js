@@ -106,10 +106,21 @@ const userController = {
 
       
       db.Product.findByPk(idPerfil, filtrado)
-      .then(function (results) {
+      .then(function(results) {
+        if (!results) {
+            return res.send("El perfil no existe o no se encontró.");
+        }
+        return res.render("perfil", { perfilInfo: results });
+        })
+      /*.then(function(results) {
+            if (!results) {
+                return res.send("El perfil no existe o no se encontró.");
+            }
+            return res.render("perfil", { perfilInfo: results });
+        }).then(function (results) {
         //return res.send(results)
         return res.render("perfil", { perfilInfo: results });
-      })
+      })*/
       .catch(function (err) {
         console.log(err);
       });
