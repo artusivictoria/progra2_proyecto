@@ -19,7 +19,7 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= product.nombre %> </h2> 
-			<a class= "publicadoUsuario" href="/users/perfil/<%=product.idUsers%>">    Publicado por <%= product.user.nombreUsuario %> </a>
+			<a class= "publicadoUsuario" href="/users/perfil/<%=product.user.id%>">    Publicado por <%= product.user.nombreUsuario %> </a>
 			<% if (locals.user!=undefined) {%>
 				<p class="product-detail-description">
 					<a href="/mercado/showFormUpdate">Editar</a>
@@ -32,7 +32,7 @@
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="/images/products/<%= product.imagen %>" alt="foto de <%= product.nombre %>">
-					<img src="./images/products/default-image.png" alt="" class="product-detail-img">
+					
 					<p class="product-detail-description">
 						<%= product.descripcion %></p>
 				</article>
@@ -42,7 +42,7 @@
 							<img src="/images/users/sophia.jpg" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="profile.html">sophia: </a> </strong>
+								<strong> <a href="/users/perfil/1">sophia: </a> </strong>
 								 Este producto es de muy buena calidad. La pagina es muy amigable</p>
 							</div>
 						</article>
@@ -50,7 +50,7 @@
 							<img src="/images/users/victoria.jpg" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Victora: </a> </strong>
+									<strong> <a href="/users/perfil/2">Victora: </a> </strong>
 									No recomiendo este producto, se rompio a la semana</p>
 							</div>
 						</article>
@@ -58,7 +58,7 @@
 							<img src="/images/users/ana.jpg" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Ana: </a> </strong>
+									<strong> <a href="/users/perfil/3">Ana: </a> </strong>
 									Recomendable producto y con envio rapido
 									</p>
 							</div>
@@ -67,7 +67,7 @@
 							<img src="/images/users/belen.jpg" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html"> Belen </a> </strong>
+									<strong> <a href="/users/perfil/4"> Belen </a> </strong>
 									No llego como esperaba, es mas chico. Estoy desepcionada</p>
 							</div>
 						</article>
@@ -75,7 +75,7 @@
 							<img src="/images/users/catalina.jpg" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Catalina </a> </strong>
+									<strong> <a href="/users/perfil/5">Catalina </a> </strong>
 									Excelente. Mi vida cambio con este producto y esta pagina web</p>
 							</div>
 						</article>

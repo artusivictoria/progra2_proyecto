@@ -95,39 +95,39 @@ const userController = {
 
     perfil: function(req,res) {
 
-    let idPerfil = req.params.idPerfil;
-
-      let filtrado = {
-        include: {
-          all: true, //todas las relaciones
-          nested: true //y las relaciones anidadas
-        }
-      }
-
-      
-      db.Product.findByPk(idPerfil, filtrado)
-      .then(function(results) {
-        if (!results) {
-            return res.send("El perfil no existe o no se encontró.");
-        }
-        //return res.send(results)
-        return res.render("perfil", { perfilInfo: results });
-        })
-      /*.then(function(results) {
+        let idPerfil = req.params.idPerfil;
+    
+          let filtrado = {
+            include: {
+              all: true, //todas las relaciones
+              nested: true //y las relaciones anidadas
+            }
+          }
+    
+          
+          db.Product.findByPk(idPerfil, filtrado)
+          .then(function(results) {
             if (!results) {
                 return res.send("El perfil no existe o no se encontró.");
             }
+            //return res.send(results)
             return res.render("perfil", { perfilInfo: results });
-        }).then(function (results) {
-        //return res.send(results)
-        return res.render("perfil", { perfilInfo: results });
-      })*/
-      .catch(function (err) {
-        console.log(err);
-      });
-        
-       
-    }, 
+            })
+          /*.then(function(results) {
+                if (!results) {
+                    return res.send("El perfil no existe o no se encontró.");
+                }
+                return res.render("perfil", { perfilInfo: results });
+            }).then(function (results) {
+            //return res.send(results)
+            return res.render("perfil", { perfilInfo: results });
+          })*/
+          .catch(function (err) {
+            console.log(err);
+          });
+            
+           
+        },
 
     miPerfil: function(req,res) {
         let idPerfil = req.params.idPerfil
