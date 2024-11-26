@@ -110,6 +110,7 @@ const userController = {
         if (!results) {
             return res.send("El perfil no existe o no se encontró.");
         }
+        //return res.send(results)
         return res.render("perfil", { perfilInfo: results });
         })
       /*.then(function(results) {
@@ -124,7 +125,7 @@ const userController = {
       .catch(function (err) {
         console.log(err);
       });
-        //return res.render("perfil")
+        
        
     }, 
 

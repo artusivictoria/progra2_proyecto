@@ -35,7 +35,7 @@
 							<article class="product-box_data">
 								
 								<h2><%= prodBuscado[i].nombre %> </h2>
-								<p>Publicado por <a href="/users/perfil"><%= prodBuscado[i].user.nombreUsuario %></a> </p>
+								<p>Publicado por <a href="/users/perfil/<%= prodBuscado[i].user.id %>"><%= prodBuscado[i].user.nombreUsuario %></a> </p>
 								 
 								
 								<!-- temporal hasta que borre los productos que no tienen idUser, modifico esto por el if de arriba

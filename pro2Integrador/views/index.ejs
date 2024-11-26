@@ -45,7 +45,7 @@
 						<article class="product-box_data">
 							<h2><%= listaProductos[i].nombre %></h2>
 							<p><%= listaProductos[i].descripcion %></p>
-							<a href="/users/perfil" class="publicadoPor"> Publicado por <%= listaProductos[i].user.nombreUsuario %></a> 
+							<a href="/users/perfil/<%= listaProductos[i].user.id %>" class="publicadoPor"> Publicado por <%= listaProductos[i].user.nombreUsuario %></a> 
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
